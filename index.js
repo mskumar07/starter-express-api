@@ -5,8 +5,9 @@ const {Sequelize,DataTypes} = require('sequelize');
 
 
 const sequelize = new Sequelize(process.env.DATABASE, process.env.DB_USERNAME, process.env.DB_PASSWORD, {
-    host: '192.168.1.25',
-    dialect: 'postgres'
+    host: process.env.DB_PORT,
+    dialect: process.env.DB_DIALECT,
+    port: process.env.DB_PORT
   });
 
 const fast = sequelize.define('fast', {
@@ -42,3 +43,11 @@ app.post('/api/users', async (req, res) => {
 });
 
 app.listen(process.env.PORT || 3000)
+
+
+// postgres://sample_db_e6b3_user:Bf0pVpQHZSqHnZruJYXj5a2GyVmFDoYZ@dpg-
+
+// cnip4ig21fec73ct7ol0-a.oregon-postgres.render.com
+// /
+
+// sample_db_e6b3
