@@ -36,4 +36,9 @@ app.all('/db_get_data', async (req, res) => {
     res.send({title:Data})
 })
 
+app.post('/api/users', async (req, res) => {
+      const newUser = await fast.create({ email:"default" });
+      res.status(200).json({title:newUser});
+});
+
 app.listen(process.env.PORT || 3000)
